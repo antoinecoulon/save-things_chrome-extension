@@ -1,13 +1,21 @@
 import './App.css'
 
+{/** 
+  TODO:
+    - accessibility
+    - design
+    - extension chrome (manifest)
+    - firebase  
+*/}
+
 function App() {
   
 
   return (
     <section className='app-body'>
-        <h1>Entrer un URL ou une note à sauvegarder :</h1>
+        <label htmlFor='app-input'>Entrer un URL ou une note à sauvegarder :</label>
         <input type="text" className='app-input' id='app-input' name='app-input'/>
-        <button>Sauvegarder</button><button>Effacer</button>
+        <button>SAUVEGARDER</button><button>EFFACER</button>
     </section>
   )
 }
