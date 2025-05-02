@@ -19,6 +19,8 @@ section > .app-input {
     width: 90%;
     padding: 8px;
 
+    background-color: var(--color-bg-secondary);
+    color: var(--color-bg-primary);
     border: none;
     border-radius: 8px;
 }
