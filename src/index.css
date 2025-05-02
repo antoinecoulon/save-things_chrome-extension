@@ -6,12 +6,17 @@
   font-weight: 400;
 
   color-scheme: light dark;
-  color: rgba(255, 255, 255, 0.87);
-  background-color: #242424;
+  color: var(--color-text-primary);
+  background-color: var(--color-bg-primary);
 
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+
+  --color-bg-primary: #003049;
+  --color-bg-secondary: #669BBC;
+  --color-text-primary: #FDF0D5;
+  --color-danger: #C1121F;
 }
 
 body {
