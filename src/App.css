@@ -1,40 +1,76 @@
 section.app-body {
-    width: 400px;
-    min-width: 400px;
-    display: flex;
-    flex-direction: column;
-    gap: 4px;
-    justify-content: center;
-    align-items: flex-start;
+  width: 500px;
+  max-width: 500px;
+  min-width: 400px;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  justify-content: center;
+  align-items: flex-start;
 
-    padding: 16px;
-    border: 1px solid blue;
+  padding: 16px;
+  border: 1px solid blue;
 }
 
 section > label {
-    font-size: 0.9rem;
+  font-size: 0.9rem;
 }
 
 section > .app-input {
-    width: 90%;
-    padding: 8px;
+  width: 90%;
+  padding: 8px;
 
-    background-color: var(--color-bg-secondary);
-    color: var(--color-bg-primary);
-    border: none;
-    border-radius: 8px;
+  background-color: var(--color-bg-secondary);
+  color: var(--color-bg-primary);
+  border: none;
+  border-radius: 8px;
 }
 
 section > .buttons {
-    width: 100%;
-    display: flex;
-    gap: 8px;
-    margin-top: 4px;
+  width: 90%;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  margin-top: 8px;
 }
 
-section > .buttons > button {
-    background-color: var(--color-bg-secondary);
-    padding: 4px 16px;
-    border: 1px solid var(--color-text-primary);
-    color: var(--color-text-primary);
+section > .buttons > .box-btn {
+  display: flex;
+  gap: 8px;
+  width: 100%;
+}
+
+section > .buttons > .box-btn > button {
+  width: 50%;
+  background-color: var(--color-bg-secondary);
+  padding: 4px 16px;
+  border: 1px solid var(--color-text-primary);
+  color: var(--color-text-primary);
+  text-align: center;
+  border-radius: 4px;
+  transition: background-color 0.3s ease;
+}
+
+section > .buttons > .box-btn > button:hover {
+  background-color: rgba(81, 110, 190, 0.842);
+}
+
+section > .buttons > .box-btn > .delete-btn {
+  width: 100%;
+  border: 1px solid var(--color-danger);
+  color: var(--color-danger);
+}
+
+section > .buttons > .box-btn > .delete-btn:hover {
+  background-color: rgba(221, 134, 134, 0.781);
+}
+
+.saved-list {
+  width: 100%;
+}
+
+.saved-list > ul > li {
+  list-style: none;
+  margin-left: -32px;
+  line-height: 2;
 }
