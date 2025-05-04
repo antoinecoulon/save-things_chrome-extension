@@ -1,6 +1,5 @@
 {
-  
-    "name": "Save Things",
+  "name": "Save Things",
   "short_name": "Save Things",
   "description": "Sauvegardez rapidement un lien ou une note directement depuis votre navigateur.",
   "lang": "fr",
@@ -16,20 +15,20 @@
       "type": "image/png"
     },
     {
-        "src": "/favicon-32x32.png",
-        "sizes": "32x32",
-        "type": "image/png"
-      },
-      {
-        "src": "/favicon-16x16.png",
-        "sizes": "16x16",
-        "type": "image/png"
-      },
-      {
-        "src": "/apple-touch-icon.png",
-        "sizes": "180x180",
-        "type": "image/png"
-      }
+      "src": "/favicon-32x32.png",
+      "sizes": "32x32",
+      "type": "image/png"
+    },
+    {
+      "src": "/favicon-16x16.png",
+      "sizes": "16x16",
+      "type": "image/png"
+    },
+    {
+      "src": "/apple-touch-icon.png",
+      "sizes": "180x180",
+      "type": "image/png"
+    }
   ],
   "permissions": ["tabs", "activeTab"],
   "theme_color": "#003049",
