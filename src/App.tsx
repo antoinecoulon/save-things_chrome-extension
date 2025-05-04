@@ -1,4 +1,4 @@
-import { useState, useEffect, useRef } from "react";
+import { useState, useEffect, useRef, useMemo } from "react";
 import { initializeApp } from "firebase/app";
 import { getDatabase, ref, push, onValue, remove } from "firebase/database";
 
@@ -7,9 +7,9 @@ import "./App.css";
 {
   /** 
   TODO:
-  - sauver current page
   - accessibility
-  - design (li)
+  - design (li, alert)
+  - firebase structure
   - extension chrome (manifest)
 */
 }
@@ -29,9 +29,11 @@ const app = initializeApp(firebaseConfig);
 const database = getDatabase(app);
 
 function App() {
-  const [saves, setSaves] = useState<string[]>([])
+  const [saves, setSaves] = useState<string[]>([]);
+  const [currentUrl, setCurrentUrl] = useState("");
+
   const inputRef = useRef<HTMLInputElement>(null);
-  const referenceInDb = ref(database, "saves");
+  const referenceInDb = useMemo(() => ref(database, "saves"), [])
 
   useEffect(() => {
     const unsubscribe = onValue(referenceInDb, (snapshot) => {
@@ -43,13 +45,22 @@ function App() {
         setSaves([]);
       }
     });
-  
-    return () => unsubscribe(); // nettoyage propre
+    return () => unsubscribe();
   }, []);
-  
+
+  useEffect(() => {
+    if (typeof chrome !== "undefined" && chrome.tabs) {
+      chrome.tabs.query({ active: true, currentWindow: true }, (tabs) => {
+        const tab = tabs[0];
+        if (tab?.url) {
+          setCurrentUrl(tab.url);
+        }
+      });
+    }
+  }, []);
 
   function saveValue() {
-    if (inputRef.current?.value.trim()) {
+    if (inputRef.current?.value) {
       push(referenceInDb, inputRef.current.value.trim());
       inputRef.current.value = "";
     }
@@ -57,6 +68,12 @@ function App() {
 
   function eraseAll() {
     remove(referenceInDb);
+  }
+
+  function saveCurrentTab() {
+    if (currentUrl) {
+      push(referenceInDb, currentUrl);
+    }
   }
 
   return (
@@ -72,8 +89,13 @@ function App() {
         name="app-input"
       />
       <div className="buttons">
-        <button onClick={saveValue}>SAUVEGARDER</button>
-        <button onClick={eraseAll}>TOUT EFFACER</button>
+        <div className="box-btn">
+          <button onClick={saveValue}>SAUVEGARDER</button>
+          <button onClick={saveCurrentTab}>SAUVEGARDER L'ONGLET ACTIF</button>
+        </div>
+        <div className="box-btn">
+          <button onClick={eraseAll} className="delete-btn">TOUT EFFACER</button>
+        </div>
       </div>
       <div className="saved-list">
         <ul>
