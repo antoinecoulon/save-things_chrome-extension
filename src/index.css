@@ -13,8 +13,8 @@
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 
-  --color-bg-primary: #003049;
-  --color-bg-secondary: #669BBC;
+  --color-bg-primary: #669BBC;
+  --color-bg-secondary: #003049;
   --color-text-primary: #FDF0D5;
   --color-danger: #C1121F;
 }

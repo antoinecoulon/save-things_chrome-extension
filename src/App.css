@@ -7,9 +7,7 @@ section.app-body {
   gap: 4px;
   justify-content: center;
   align-items: flex-start;
-
   padding: 16px;
-  border: 1px solid blue;
 }
 
 section > label {
@@ -21,7 +19,7 @@ section > .app-input {
   padding: 8px;
 
   background-color: var(--color-bg-secondary);
-  color: var(--color-bg-primary);
+  color: var(--color-text-primary);
   border: none;
   border-radius: 8px;
 }
@@ -76,4 +74,9 @@ section > .buttons > .box-btn > .delete-btn:hover {
   list-style: none;
   margin-left: -32px;
   line-height: 2;
+}
+
+.saved-list > ul > li::before {
+  content: "➤ ";
+  margin-right: 4px;
 }
