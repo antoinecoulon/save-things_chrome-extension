@@ -67,7 +67,10 @@ function App() {
   }
 
   function eraseAll() {
-    remove(referenceInDb);
+    const confirmed = window.confirm("Etes-vous sûr de vouloir supprimer l'intégralité de vos notes ?")
+    if (confirmed) {
+      remove(referenceInDb);
+    }
   }
 
   function saveCurrentTab() {
@@ -91,7 +94,7 @@ function App() {
       <div className="buttons">
         <div className="box-btn">
           <button onClick={saveValue}>SAUVEGARDER</button>
-          <button onClick={saveCurrentTab}>SAUVEGARDER L'ONGLET ACTIF</button>
+          <button onClick={saveCurrentTab}>SAUVEGARDER <br /> L'ONGLET ACTIF</button>
         </div>
         <div className="box-btn">
           <button onClick={eraseAll} className="delete-btn">TOUT EFFACER</button>
