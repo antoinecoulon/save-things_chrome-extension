@@ -1,8 +1,17 @@
 {
+  "manifest_version": 3,
   "name": "Save Things",
+  "version": "1.0",
   "short_name": "Save Things",
   "description": "Sauvegardez rapidement un lien ou une note directement depuis votre navigateur.",
   "lang": "fr",
+  "action": {
+    "default_popup": "index.html",
+    "default_icon": {
+      "16": "/favicon-16x16.png",
+      "32": "/favicon-32x32.png"
+    }
+  },
   "icons": [
     {
       "src": "/android-chrome-192x192.png",
@@ -31,6 +40,7 @@
     }
   ],
   "permissions": ["tabs", "activeTab"],
+  "host_permissions": ["<all_urls>"],
   "theme_color": "#003049",
   "background_color": "#003049",
   "display": "standalone"
