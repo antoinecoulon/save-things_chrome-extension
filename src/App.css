@@ -11,16 +11,17 @@ main.app-body {
 }
 
 main.app-body > label {
-  font-size: 0.9rem;
+  font-size: 1.1rem;
+  margin-bottom: 8px;
 }
 
 main.app-body > .app-input {
-  width: 90%;
-  padding: 8px;
-
+  width: calc(90% - 16px);
+  padding: 12px 8px;
+  font-size: 1.1rem;
   background-color: var(--color-bg-secondary);
   color: var(--color-text-primary);
-  border: none;
+  border: 1px dashed var(--color-text-primary);
   border-radius: 8px;
 }
 
@@ -74,11 +75,16 @@ main.app-body > .buttons > .box-btn > .delete-btn:hover {
   list-style: none;
   margin-left: -32px;
   line-height: 2;
+  font-size: 1.2rem;
 }
 
 .saved-list > ul > li::before {
   content: "➤ ";
   margin-right: 4px;
+}
+
+.saved-list > ul > li > a {
+  color: var(--color-text-primary);
 }
 
 .sr-only {
