@@ -8,7 +8,6 @@ import "./App.css";
   /** 
   TODO:
   - accessibility
-  - extension chrome (manifest)
 */
 }
 const API_KEY = import.meta.env.VITE_FIREBASE_API_KEY;
