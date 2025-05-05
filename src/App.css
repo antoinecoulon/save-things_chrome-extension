@@ -42,12 +42,15 @@ section > .buttons > .box-btn {
 
 section > .buttons > .box-btn > button {
   width: 50%;
+  height: 56px;
+  line-height: 1.5;
   background-color: var(--color-bg-secondary);
   padding: 4px 16px;
   border: 1px solid var(--color-text-primary);
   color: var(--color-text-primary);
   text-align: center;
   border-radius: 4px;
+  cursor: pointer;
   transition: background-color 0.3s ease;
 }
 
