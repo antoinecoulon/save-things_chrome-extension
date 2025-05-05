@@ -1,7 +1,7 @@
-@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600&display=swap");
 
 :root {
-  font-family: 'Montserrat', system-ui, Avenir, Helvetica, Arial, sans-serif;
+  font-family: "Montserrat", system-ui, Avenir, Helvetica, Arial, sans-serif;
   line-height: 1.5;
   font-weight: 400;
 
@@ -13,10 +13,10 @@
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 
-  --color-bg-primary: #669BBC;
+  --color-bg-primary: #669bbc;
   --color-bg-secondary: #003049;
-  --color-text-primary: #FDF0D5;
-  --color-danger: #C1121F;
+  --color-text-primary: #fdf0d5;
+  --color-danger: #c1121f;
 }
 
 body {
@@ -26,6 +26,6 @@ body {
 }
 
 button {
-  font-family: 'Montserrat', sans-serif;
+  font-family: "Montserrat", sans-serif;
   font-weight: 600;
 }

@@ -1,4 +1,4 @@
-section.app-body {
+main.app-body {
   width: 500px;
   max-width: 500px;
   min-width: 400px;
@@ -10,11 +10,11 @@ section.app-body {
   padding: 16px;
 }
 
-section > label {
+main.app-body > label {
   font-size: 0.9rem;
 }
 
-section > .app-input {
+main.app-body > .app-input {
   width: 90%;
   padding: 8px;
 
@@ -24,7 +24,7 @@ section > .app-input {
   border-radius: 8px;
 }
 
-section > .buttons {
+main.app-body > .buttons {
   width: 90%;
   display: flex;
   flex-direction: column;
@@ -32,13 +32,13 @@ section > .buttons {
   margin-top: 8px;
 }
 
-section > .buttons > .box-btn {
+main.app-body > .buttons > .box-btn {
   display: flex;
   gap: 8px;
   width: 100%;
 }
 
-section > .buttons > .box-btn > button {
+main.app-body > .buttons > .box-btn > button {
   width: 50%;
   height: 56px;
   line-height: 1.5;
@@ -52,17 +52,17 @@ section > .buttons > .box-btn > button {
   transition: background-color 0.3s ease;
 }
 
-section > .buttons > .box-btn > button:hover {
+main.app-body > .buttons > .box-btn > button:hover {
   background-color: rgba(81, 110, 190, 0.842);
 }
 
-section > .buttons > .box-btn > .delete-btn {
+main.app-body > .buttons > .box-btn > .delete-btn {
   width: 100%;
   border: 1px solid var(--color-danger);
   color: var(--color-danger);
 }
 
-section > .buttons > .box-btn > .delete-btn:hover {
+main.app-body > .buttons > .box-btn > .delete-btn:hover {
   background-color: rgba(221, 134, 134, 0.781);
 }
 
@@ -79,4 +79,16 @@ section > .buttons > .box-btn > .delete-btn:hover {
 .saved-list > ul > li::before {
   content: "➤ ";
   margin-right: 4px;
+}
+
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
 }

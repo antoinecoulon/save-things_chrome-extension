@@ -4,12 +4,6 @@ import { getDatabase, ref, push, onValue, remove } from "firebase/database";
 
 import "./App.css";
 
-{
-  /** 
-  TODO:
-  - accessibility
-*/
-}
 const API_KEY = import.meta.env.VITE_FIREBASE_API_KEY;
 const firebaseConfig = {
   apiKey: API_KEY,
@@ -17,9 +11,9 @@ const firebaseConfig = {
   projectId: "react-projects-ea755",
   storageBucket: "react-projects-ea755.firebasestorage.app",
   appId: "1:842922221823:web:114f715b125b5148b3ecca",
-  databaseURL: "https://react-projects-ea755-default-rtdb.europe-west1.firebasedatabase.app/"
+  databaseURL:
+    "https://react-projects-ea755-default-rtdb.europe-west1.firebasedatabase.app/",
 };
-
 const app = initializeApp(firebaseConfig);
 const database = getDatabase(app);
 
@@ -28,7 +22,7 @@ function App() {
   const [currentUrl, setCurrentUrl] = useState<string>("");
 
   const inputRef = useRef<HTMLInputElement>(null);
-  const referenceInDb = useMemo(() => ref(database, "saves"), [])
+  const referenceInDb = useMemo(() => ref(database, "saves"), []);
 
   useEffect(() => {
     const unsubscribe = onValue(referenceInDb, (snapshot) => {
@@ -62,7 +56,9 @@ function App() {
   }
 
   function eraseAll() {
-    const confirmed = window.confirm("Etes-vous sûr de vouloir supprimer l'intégralité de vos notes ?")
+    const confirmed = window.confirm(
+      "Etes-vous sûr de vouloir supprimer l'intégralité de vos notes ?"
+    );
     if (confirmed) {
       remove(referenceInDb);
     }
@@ -75,7 +71,10 @@ function App() {
   }
 
   return (
-    <section className="app-body">
+    <main className="app-body" aria-labelledby="main-title">
+      <h1 id="main-title" className="sr-only">
+        Application de sauvegarde de notes et d’URLs
+      </h1>
       <label htmlFor="app-input">
         Entrer un URL ou une note à sauvegarder :
       </label>
@@ -88,21 +87,51 @@ function App() {
       />
       <div className="buttons">
         <div className="box-btn">
-          <button onClick={saveValue}>SAUVEGARDER</button>
-          <button onClick={saveCurrentTab}>SAUVEGARDER <br /> L'ONGLET ACTIF</button>
+          <button
+            onClick={saveValue}
+            aria-label="Sauvegarder la vlauer de l'input"
+          >
+            SAUVEGARDER
+          </button>
+          <button
+            onClick={saveCurrentTab}
+            aria-label="Sauvegarder l'URL de l'onglet actif"
+          >
+            SAUVEGARDER <br /> L'ONGLET ACTIF
+          </button>
         </div>
         <div className="box-btn">
-          <button onClick={eraseAll} className="delete-btn">TOUT EFFACER</button>
+          <button
+            onClick={eraseAll}
+            className="delete-btn"
+            aria-label="Effacer toutes les notes sauvegardées"
+          >
+            TOUT EFFACER
+          </button>
         </div>
       </div>
-      <div className="saved-list">
-        <ul>
-          {saves.map((save, idx) => (
-            <li key={idx}>{save}</li>
-          ))}
+      <section className="saved-list" aria-labelledby="saved-links-title">
+        <h2 id="saved-links-title" className="sr-only">
+          Liens ou notes sauvegardés
+        </h2>
+        <ul aria-live="polite">
+          {saves.map((save, idx) => {
+            const isLink = /^https?:\/\//.test(save);
+            return (
+              <li key={idx}>
+                {isLink ? (
+                  <a href={save} target="_blank" rel="noopener noreferrer">
+                    {save}
+                  </a>
+                ) : (
+                  <span>{save}</span>
+                )}
+              </li>
+            );
+          })}
         </ul>
-      </div>
-    </section>
+      </section>
+    </main>
   );
 }
 
